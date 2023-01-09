@@ -282,7 +282,7 @@ class ParsedownPlus extends DynamicParent
 
         $Element['attributes'] = array(
           'class' => $class,
-          'data-filename' => $filename
+          'data-filename' => trim($filename)
         );
       }
 
@@ -290,14 +290,7 @@ class ParsedownPlus extends DynamicParent
         'char' => $Line['text'][0],
         'element' => array(
           'name' => 'pre',
-          'handler' => 'element',
-          'text' => $Element,
-/*
-          'attributes' => array(
-            'class' => $class,
-            'data-filename' => $filename
-          )
-*/
+          'element' => $Element,
         ),
       );
 

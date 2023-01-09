@@ -14,7 +14,7 @@
 namespace Githuber\Module;
 use Markdown;
 use ParsedownExtra;
-use \Izadori\ParsedownPlus\ParsedownPlus;
+use ParsedownPlus;
 
 class MarkdownExtraParser extends ParsedownPlus {
 
