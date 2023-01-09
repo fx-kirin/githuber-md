@@ -272,17 +272,20 @@ class ParsedownPlus extends DynamicParent
       if (isset($matches[1])) {
         $pos = strcspn($matches[1], ": \t\n\f\r");
         $language = substr($matches[1], 0, $pos);
-        $filename = substr($matches[1], $pos + 1);
+        $filename = trim(substr($matches[1], $pos + 1));
 
         if($filename === "") {
           $filename = null;
+          $pre_class = null;
+        } else {
+          $pre_class = 'with_filename';
         }
 
         $class = $this->langPrefix.$language;
 
         $Element['attributes'] = array(
           'class' => $class,
-          'data-filename' => trim($filename)
+          'data-filename' => $filename
         );
       }
 
@@ -290,6 +293,9 @@ class ParsedownPlus extends DynamicParent
         'char' => $Line['text'][0],
         'element' => array(
           'name' => 'pre',
+          'attributes' => array(
+              'class' => $pre_class,
+          ),
           'element' => $Element,
         ),
       );
