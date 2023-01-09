@@ -14,8 +14,9 @@
 namespace Githuber\Module;
 use Markdown;
 use ParsedownExtra;
+use \Izadori\ParsedownPlus\ParsedownPlus;
 
-class MarkdownExtraParser extends ParsedownExtra {
+class MarkdownExtraParser extends ParsedownPlus {
 
 	// Stores shortcodes we remove and then replace
 	protected $preserve_text_hash = array();
